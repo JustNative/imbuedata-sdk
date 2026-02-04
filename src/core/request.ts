@@ -55,7 +55,7 @@ export class HttpClient {
 
         try {
             const response = await fetch(url.toString(), fetchOptions);
-            const data: ApiResponse<T> = await response.json();
+            const data = await response.json() as ApiResponse<T>;
 
             // Handle API errors
             if (!response.ok || !data.success) {
