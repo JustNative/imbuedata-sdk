@@ -1,6 +1,6 @@
 # ImbueData SDK
 
-[![npm version](https://img.shields.io/npm/v/imbuedata.svg)](https://www.npmjs.com/package/imbuedata)
+[![npm version](https://img.shields.io/npm/v/@justnative/imbuedata.svg)](https://www.npmjs.com/package/@justnative/imbuedata)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 The official TypeScript/JavaScript SDK for **[ImbueData](https://imbuedata.com)**. Effortlessly extract structured data from social media platforms with professional-grade reliability and speed.
@@ -25,11 +25,11 @@ The official TypeScript/JavaScript SDK for **[ImbueData](https://imbuedata.com)*
 ## 🚀 Installation
 
 ```bash
-npm install imbuedata
+npm install @justnative/imbuedata
 # or
-yarn add imbuedata
+yarn add @justnative/imbuedata
 # or
-pnpm add imbuedata
+pnpm add @justnative/imbuedata
 ```
 
 ## ⚡ Quick Start

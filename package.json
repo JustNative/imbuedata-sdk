@@ -1,5 +1,5 @@
 {
-    "name": "imbuedata",
+    "name": "@justnative/imbuedata",
     "version": "1.0.0",
     "description": "Official TypeScript SDK for ImbueData API - Social media data extraction",
     "main": "dist/index.js",
@@ -32,5 +32,8 @@
     "bugs": {
         "url": "https://github.com/JustNative/imbuedata-sdk/issues"
     },
-    "homepage": "https://github.com/JustNative/imbuedata-sdk#readme"
+    "homepage": "https://github.com/JustNative/imbuedata-sdk#readme",
+    "publishConfig": {
+        "access": "public"
+    }
 }
