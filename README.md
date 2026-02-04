@@ -93,7 +93,7 @@ const profile = await client.pinterest.getProfile('username');
 ```typescript
 const client = new ImbueDataClient({
   apiKey: 'your-api-key-here',
-  baseUrl: 'https://api.imbuedata.com' // Optional, defaults to production
+  baseUrl: 'https://imbuedata.com/api' // Optional, defaults to production
 });
 ```
 
