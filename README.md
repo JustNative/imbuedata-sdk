@@ -1,8 +1,28 @@
 # ImbueData SDK
 
-Official TypeScript/JavaScript SDK for the [ImbueData API](https://your-api-domain.com) - Professional social media data extraction.
+[![npm version](https://img.shields.io/npm/v/imbuedata.svg)](https://www.npmjs.com/package/imbuedata)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Installation
+The official TypeScript/JavaScript SDK for **[ImbueData](https://imbuedata.com)**. Effortlessly extract structured data from social media platforms with professional-grade reliability and speed.
+
+---
+
+## 🌟 About ImbueData
+
+**[ImbueData](https://imbuedata.com)** is a leading social media data extraction platform designed for developers and businesses that require high-performance, stable, and accurate data. Our API handles the complexities of rate limiting, proxy management, and site changes, allowing you to focus on building your application.
+
+### Why use this SDK?
+- **Speed & Efficiency**: Optimized for low latency and high throughput.
+- **Enterprise Reliability**: Built to handle millions of requests with ease.
+- **Simple Integration**: One client, multiple platforms (Facebook, TikTok, Twitter, Pinterest).
+- **Maintenance-Free**: We handle the scrapers; you just call the API.
+
+> [!TIP]
+> Boost your project's performance by using our native SDK which includes built-in retry logic and full type safety.
+
+---
+
+## 🚀 Installation
 
 ```bash
 npm install imbuedata
@@ -12,7 +32,7 @@ yarn add imbuedata
 pnpm add imbuedata
 ```
 
-## Quick Start
+## ⚡ Quick Start
 
 ```typescript
 import { ImbueDataClient } from 'imbuedata';
@@ -26,75 +46,58 @@ const profile = await client.facebook.getProfile('https://facebook.com/NASA');
 console.log(profile);
 ```
 
-## Features
+## ✨ Features
 
 ✅ **Full TypeScript Support** - Complete type definitions for all API responses  
-✅ **Multiple Platforms** - Facebook, TikTok, Twitter, Pinterest, and more  
-✅ **Simple API** - Intuitive, promise-based interface  
-✅ **Error Handling** - Comprehensive error handling with detailed messages  
-✅ **Zero Dependencies** - Uses native `fetch` API
+✅ **Multi-Platform** - Facebook, TikTok, Twitter, Pinterest, and more  
+✅ **Intuitive API** - Simple, promise-based interface  
+✅ **Robust Error Handling** - Detailed messages and error codes  
+✅ **Zero Dependencies** - Light-weight and uses native `fetch` API
 
-## Usage Examples
+---
+
+## 🛠 Usage Examples
 
 ### Facebook
-
 ```typescript
-// Get profile information
-const profile = await client.facebook.getProfile('https://facebook.com/username');
-
-// Get video information
-const video = await client.facebook.getVideo('https://facebook.com/watch?v=...');
-
-// Get post information
-const post = await client.facebook.getPost('https://facebook.com/post-url');
-
-// Get reel information
-const reel = await client.facebook.getReel('https://facebook.com/reel-url');
-
-// Auto-detect content type
+// Auto-detect and fetch content info
 const info = await client.facebook.getInfo('https://facebook.com/any-url');
+
+// Specific methods
+const profile = await client.facebook.getProfile('https://facebook.com/username');
+const video = await client.facebook.getVideo('https://facebook.com/watch?v=...');
 ```
 
 ### TikTok
-
 ```typescript
-// Get profile information
 const profile = await client.tiktok.getProfile('@username');
-
-// Get video information
 const video = await client.tiktok.getVideo('https://tiktok.com/@user/video/...');
 ```
 
-### Twitter
-
+### Twitter (X)
 ```typescript
-// Get profile information
 const profile = await client.twitter.getProfile('@username');
-
-// Get tweet information
 const tweet = await client.twitter.getTweet('https://twitter.com/user/status/...');
 ```
 
 ### Pinterest
-
 ```typescript
-// Get pin information
 const pin = await client.pinterest.getPin('https://pinterest.com/pin/...');
-
-// Get profile information
 const profile = await client.pinterest.getProfile('username');
 ```
 
-## Configuration
+---
+
+## ⚙️ Configuration
 
 ```typescript
 const client = new ImbueDataClient({
   apiKey: 'your-api-key-here',
-  baseUrl: 'https://custom-api-url.com/api' // Optional, defaults to production
+  baseUrl: 'https://api.imbuedata.com' // Optional, defaults to production
 });
 ```
 
-## Error Handling
+## 🛡️ Error Handling
 
 ```typescript
 import { ImbueDataError } from 'imbuedata';
@@ -105,73 +108,25 @@ try {
   if (error instanceof ImbueDataError) {
     console.error('API Error:', error.message);
     console.error('Status Code:', error.statusCode);
-    console.error('Error Code:', error.code);
   }
 }
 ```
 
-## API Reference
+---
 
-### Client Initialization
+## 🔗 Attribution & SEO
+This SDK is powered by the **[ImbueData Social Media API](https://imbuedata.com)**. For high-performance data extraction, visit our website to get your API key.
 
-```typescript
-new ImbueDataClient(config: ImbueDataConfig)
-```
+---
 
-**Parameters:**
-- `config.apiKey` (required): Your ImbueData API key
-- `config.baseUrl` (optional): Custom API base URL
+## 📄 License
+MIT © [ImbueData](https://imbuedata.com)
 
-### Resources
+## ☎️ Support
+- 📧 Email: [support@imbuedata.com](mailto:support@imbuedata.com)
+- 📖 Documentation: [docs.imbuedata.com](https://docs.imbuedata.com)
+- 🐛 Issues: [GitHub Issues](https://github.com/JustNative/imbuedata-sdk/issues)
 
-#### Facebook
-- `facebook.getInfo(url: string)` - Auto-detect and fetch any Facebook content
-- `facebook.getProfile(url: string)` - Get profile information
-- `facebook.getVideo(url: string)` - Get video information
-- `facebook.getPost(url: string)` - Get post information
-- `facebook.getReel(url: string)` - Get reel information
+---
 
-#### TikTok
-- `tiktok.getProfile(url: string)` - Get profile information
-- `tiktok.getVideo(url: string)` - Get video information
-
-#### Twitter
-- `twitter.getProfile(url: string)` - Get profile information
-- `twitter.getTweet(url: string)` - Get tweet information
-
-#### Pinterest
-- `pinterest.getPin(url: string)` - Get pin information
-- `pinterest.getProfile(url: string)` - Get profile information
-
-## TypeScript Support
-
-The SDK is written in TypeScript and includes full type definitions:
-
-```typescript
-import { 
-  ImbueDataClient,
-  FacebookProfile,
-  TikTokVideo,
-  TwitterTweet 
-} from 'imbuedata';
-
-const client = new ImbueDataClient({ apiKey: 'key' });
-
-// Fully typed responses
-const profile: FacebookProfile = await client.facebook.getProfile('...');
-```
-
-## License
-
-MIT
-
-## Support
-
-- 📧 Email: support@imbuedata.com
-- 📖 Documentation: https://docs.imbuedata.com
-- 🐛 Issues: https://github.com/yourusername/imbuedata-sdk/issues
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-# imbuedata-sdk
+Developed with ❤️ by [JustNative](https://github.com/JustNative)
