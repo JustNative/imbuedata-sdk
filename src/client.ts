@@ -4,6 +4,13 @@ import { Facebook } from './resources/facebook';
 import { TikTok } from './resources/tiktok';
 import { Twitter } from './resources/twitter';
 import { Pinterest } from './resources/pinterest';
+import { Translator } from './resources/translator';
+import { Loom } from './resources/loom';
+import { Zoom } from './resources/zoom';
+import { AppleConnect } from './resources/appleconnect';
+import { ApplePodcasts } from './resources/applepodcasts';
+import { AdobeTV } from './resources/adobetv';
+import { Snapchat } from './resources/snapchat';
 
 /**
  * Main ImbueData SDK Client
@@ -36,6 +43,27 @@ export class ImbueDataClient {
     /** Pinterest API methods */
     public pinterest: Pinterest;
 
+    /** Translator API methods */
+    public translator: Translator;
+
+    /** Loom API methods */
+    public loom: Loom;
+
+    /** Zoom API methods */
+    public zoom: Zoom;
+
+    /** Apple Connect API methods */
+    public appleconnect: AppleConnect;
+
+    /** Apple Podcasts API methods */
+    public applepodcasts: ApplePodcasts;
+
+    /** AdobeTV API methods */
+    public adobetv: AdobeTV;
+
+    /** Snapchat API methods */
+    public snapchat: Snapchat;
+
     /**
      * Create a new ImbueData client
      * @param config - Client configuration
@@ -50,5 +78,12 @@ export class ImbueDataClient {
         this.tiktok = new TikTok(this.httpClient);
         this.twitter = new Twitter(this.httpClient);
         this.pinterest = new Pinterest(this.httpClient);
+        this.translator = new Translator(this.httpClient);
+        this.loom = new Loom(this.httpClient);
+        this.zoom = new Zoom(this.httpClient);
+        this.appleconnect = new AppleConnect(this.httpClient);
+        this.applepodcasts = new ApplePodcasts(this.httpClient);
+        this.adobetv = new AdobeTV(this.httpClient);
+        this.snapchat = new Snapchat(this.httpClient);
     }
 }

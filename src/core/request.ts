@@ -58,7 +58,7 @@ export class HttpClient {
             const data = await response.json() as ApiResponse<T>;
 
             // Handle API errors
-            if (!response.ok || !data.success) {
+            if (!response.ok) {
                 throw new ImbueDataError(
                     data.error?.message || 'Request failed',
                     response.status,
@@ -67,7 +67,18 @@ export class HttpClient {
                 );
             }
 
-            return data.data as T;
+            // Check for success field if it exists
+            if (data.success === false) {
+                throw new ImbueDataError(
+                    data.error?.message || 'API returned success: false',
+                    response.status,
+                    data.error?.code,
+                    data.error?.details
+                );
+            }
+
+            // Return the data - check if it's wrapped in a 'data' property
+            return (data.data !== undefined ? data.data : data) as T;
         } catch (error) {
             if (error instanceof ImbueDataError) {
                 throw error;

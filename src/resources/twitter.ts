@@ -31,19 +31,26 @@ export interface TwitterTweet {
 export class Twitter {
     constructor(private client: HttpClient) { }
 
-    /**
-     * Get Twitter profile information
-     * @param url - Twitter profile URL or username
-     */
-    async getProfile(url: string): Promise<TwitterProfile> {
-        return this.client.get<TwitterProfile>('/v1/twitter/profile', { url });
+    async getTweet(urlOrId: string): Promise<TwitterTweet> {
+        const isUrl = urlOrId.includes('http');
+        return this.client.get<TwitterTweet>('/v1/twitter/tweet', isUrl ? { url: urlOrId } : { id: urlOrId });
+    }
+    
+    async getTweetInfo(urlOrId: string): Promise<any> {
+        const isUrl = urlOrId.includes('http');
+        return this.client.get<any>('/v1/twitter/tweet/info', isUrl ? { url: urlOrId } : { id: urlOrId });
     }
 
-    /**
-     * Get Twitter tweet information
-     * @param url - Twitter tweet URL
-     */
-    async getTweet(url: string): Promise<TwitterTweet> {
-        return this.client.get<TwitterTweet>('/v1/twitter/tweet', { url });
+    async getTweetPrivate(url: string): Promise<any> {
+        return this.client.get<any>('/v1/twitter/tweet/private', { url });
+    }
+
+    async getProfile(usernameOrId: string): Promise<TwitterProfile> {
+        const isId = /^\d+$/.test(usernameOrId);
+        return this.client.get<TwitterProfile>('/v1/twitter/user', isId ? { id: usernameOrId } : { screenName: usernameOrId });
+    }
+
+    async getUserTweets(userId: string, type: 'tweets' | 'replies' | 'media' | 'likes' = 'tweets'): Promise<any> {
+        return this.client.get<any>('/v1/twitter/user/tweets', { userId, type });
     }
 }

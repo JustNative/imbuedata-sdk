@@ -9,9 +9,7 @@ import { ImbueDataClient, ImbueDataError } from '../src/index';
 async function main() {
     // Initialize the client with your API key
     const client = new ImbueDataClient({
-        apiKey: process.env.IMBUEDATA_API_KEY || 'your-api-key-here',
-        // Optional: customize the base URL
-        // baseUrl: 'https://your-custom-domain.com/api'
+        apiKey: process.env.IMBUEDATA_API_KEY || 'your-api-key-here'
     });
 
     console.log('🚀 ImbueData SDK Examples\n');

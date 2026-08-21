@@ -35,19 +35,35 @@ export interface TikTokVideo {
 export class TikTok {
     constructor(private client: HttpClient) { }
 
-    /**
-     * Get TikTok profile information
-     * @param url - TikTok profile URL or username
-     */
-    async getProfile(url: string): Promise<TikTokProfile> {
-        return this.client.get<TikTokProfile>('/v1/tiktok/profile', { url });
+    async getInfo(url: string): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/info', { url });
     }
 
-    /**
-     * Get TikTok video information
-     * @param url - TikTok video URL
-     */
-    async getVideo(url: string): Promise<TikTokVideo> {
-        return this.client.get<TikTokVideo>('/v1/tiktok/video', { url });
+    async getDetails(url: string): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/details', { url });
+    }
+
+    async getVideoComments(url: string): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/video-comments', { url });
+    }
+
+    async getProfile(username: string): Promise<TikTokProfile> {
+        return this.client.get<TikTokProfile>('/v1/tiktok/profile', { username });
+    }
+
+    async getCollection(url: string): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/collection', { url });
+    }
+
+    async getPlaylist(url: string): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/playlist', { url });
+    }
+
+    async getTrending(): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/trending');
+    }
+
+    async getTrendingCreators(): Promise<any> {
+        return this.client.get<any>('/v1/tiktok/trending-creators');
     }
 }
