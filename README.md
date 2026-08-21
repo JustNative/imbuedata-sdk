@@ -240,7 +240,7 @@ MIT © [ImbueData](https://imbuedata.com)
 ## 💬 Support
 
 - 📧 Email: [support@imbuedata.com](mailto:support@imbuedata.com)
-- 📖 Docs: [docs.imbuedata.com](https://docs.imbuedata.com)
+- 📖 Docs: [imbuedata.com/dashboard/documentation](https://imbuedata.com/dashboard/documentation)
 - 🐛 Issues: [GitHub Issues](https://github.com/JustNative/imbuedata-sdk/issues)
 
 ---
